@@ -1,3 +1,5 @@
+/* google font "just another hand" */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Just+Another+Hand&display=swap');
 *{
     margin: 0%;
     padding: 0%;
@@ -8,6 +10,7 @@
     height: 100%;
     background: linear-gradient(to right, #40c9ff, #e81cff);
     overflow: hidden;
+    overflow-y: hidden;
 }
 .header-section{
     flex-direction: row;
@@ -27,7 +30,8 @@
     left: 15px;
 }
 #weatherify-logo{
-    max-width: 150px;
+    max-width: 160px;
+    margin-left: 10px;
     z-index: 1;
     flex: 0 1 40%;
 }
@@ -45,6 +49,29 @@
     margin: 10px;
     text-decoration: none;
     color: #fff;
+}
+.bolticon-menu{
+    position: absolute;
+    top: 41px;
+    display: none;
+}
+#home-menu-bolt{
+    right: 269px;
+}
+#contact-menu-bolt{
+    right: 191px;
+}
+#about-menu-bolt{
+    right: 108px;
+}
+#home-menu:hover + #home-menu-bolt{
+    display: block;
+}
+#contact-menu:hover + #contact-menu-bolt{
+    display: block;
+}
+#about-menu:hover + #about-menu-bolt{
+    display: block;
 }
 .content-section{
     padding: 100px 0px;
@@ -65,7 +92,7 @@
     flex: 0 1 40%;
     flex-direction: column;
     align-content: center;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     height: 290px;
@@ -75,6 +102,11 @@
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.heading-searchSide{
+    font-size: 3rem;
+    font-family: 'Caveat', cursive;
+    font-family: 'Just Another Hand', cursive;
 }
 .searchSide-btn{
     color: #fff;
