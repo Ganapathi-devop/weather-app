@@ -23,7 +23,7 @@
             <div class="row">
                 <header class="d-flex header-section">
                     <i class="fa-solid fa-cloud" id="cloud-icon-header"></i>
-                    <img id="weatherify-logo" src="/resources/img/weatherify!.png" alt="weatherify! *logo*">
+                    <img id="weatherify-logo" src="/resources/weatherify!.svg" alt="weatherify! *logo*">
                     <div class="menu-bar-header">
                         <a href="#" id="home-menu">HOME</a>
                         <span class="material-symbols-outlined bolticon-menu" id="home-menu-bolt">bolt</span>
@@ -39,13 +39,49 @@
                     <img id="snowman-content" src="https://www.transparentpng.com/thumb/snowman/auIVvP-snowman-clipart-cute-snowman-cute-transparent-free-for.png" alt="Smile, Snowman transparent picture with broom @transparentpng.com">
                     <img id="snowflakes-content" src="https://www.transparentpng.com/thumb/snowflakes/Xn682z-snowflakes-free-download-transparent.png" alt="snowflakes free download transparent @transparentpng.com">
                     <div class="report-side">
-                        <img src="" alt="">
-                        <img src="" alt="">
-                        <img src="" alt="">
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <button class="btn btn-primary" type="button" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Content">Text</button>
+                        <div class="default-forecast-div">
+                            <h4 class="d-inline text-center">Last 24 hr Forecast</h4>
+
+                            <div class="d-flex weather-widget p-2">
+                                <img id="img-weather-widget" src="/resources/img/cloudy.png" alt="cloudy img">
+                                <table class="weather-widget-table">
+                                    <thead><h4>CLOUDY</h4></thead>
+                                    <tr>
+                                        <td class="float-left">
+                                            <p>Max-temp</p>
+                                        </td>
+                                        <td class="float-right">
+                                            <p>-----</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>Min-temp</p>
+                                        </td>
+                                        <td>
+                                            <p>-----</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>Sunrise</p>
+                                        </td>
+                                        <td>
+                                            <p>-----</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>Sunset</p>
+                                        </td>
+                                        <td>
+                                            <p>-----</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="search-side d-flex float-right">
                         <h4 class="heading-searchSide">Search your preferred City</h4>
