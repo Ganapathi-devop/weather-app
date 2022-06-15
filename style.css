@@ -138,6 +138,9 @@
 #img-weather-widget{
     max-width: 100px;
 }
+#sunriseTime{
+    color: #AB564B;
+}
 .heading-searchSide{
     font-size: 3rem;
     font-family: 'Caveat', cursive;
