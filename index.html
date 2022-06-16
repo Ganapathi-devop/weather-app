@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <!-- jquery cdn -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- moment js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js" integrity="sha512-vFABRuf5oGUaztndx4KoAEUVQnOvAIFs59y4tO0DILGWhQiFnFHiR+ZJfxLDyJlXgeut9Z07Svuvm+1Jv89w5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/locale/es-us.min.js" integrity="sha512-g3W07rPDBdP61IAshGY/U9bY76bt+lVk3WHD7+grs8tE4vUk7rxW3oaGjtUo12EcwHsbTjsdl9X5/fzCRYKR4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- browser icon -->
     <link rel="icon" type="image/png" href="/resources/img/cloudy.png" sizes="196x196" />
     <!-- styling file  -->
@@ -47,13 +50,13 @@
                             <div class="d-flex weather-widget p-2">
                                 <img id="img-weather-widget" src="/resources/img/cloudy.png" alt="cloudy img">
                                 <table class="weather-widget-table">
-                                    <thead><h4>CLOUDY</h4></thead>
+                                    <thead><h4 id="weather-desc">CLOUDY</h4></thead>
                                     <tr>
                                         <td class="float-left">
                                             <p>Max-temp</p>
                                         </td>
                                         <td class="float-right">
-                                            <p>-----</p>
+                                            <span id="max-temp">-----</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -61,7 +64,7 @@
                                             <p>Min-temp</p>
                                         </td>
                                         <td>
-                                            <p>-----</p>
+                                            <span id="min-temp">-----</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -69,7 +72,7 @@
                                             <p>Sunrise</p>
                                         </td>
                                         <td>
-                                            <p id="sunriseTime">-----</p>
+                                            <span id="sunriseTime">-----</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -77,7 +80,7 @@
                                             <p>Sunset</p>
                                         </td>
                                         <td>
-                                            <p id="sunsetTime">-----</p>
+                                            <span id="sunsetTime">-----</span>
                                         </td>
                                     </tr>
                                 </table>

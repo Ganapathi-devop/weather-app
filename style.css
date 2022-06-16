@@ -138,7 +138,7 @@
 #img-weather-widget{
     max-width: 100px;
 }
-#sunriseTime{
+.weather-widget-table span{
     color: #AB564B;
 }
 .heading-searchSide{
