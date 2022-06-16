@@ -137,6 +137,7 @@
 }
 #img-weather-widget{
     max-width: 100px;
+    font-size: 2rem;
 }
 .weather-widget-table span{
     color: #AB564B;
