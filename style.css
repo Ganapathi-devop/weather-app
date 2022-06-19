@@ -140,7 +140,14 @@
     font-size: 2rem;
 }
 .weather-widget-table span{
-    color: #AB564B;
+    color: #FFFF47;
+    font-weight: 700;
+    text-shadow: 1px 1px rgba(0, 0, 0, .5);
+    font-family: 'Righteous', cursive;
+}
+.hidden-div span{
+    color: #1A1A00;
+    text-shadow: none;
 }
 .heading-searchSide{
     font-size: 3rem;

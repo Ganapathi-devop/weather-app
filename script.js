@@ -10,7 +10,7 @@ $(document).ready(function getLocation() {
 // function to convert unix date and time format to 24 hr local tme
 function unixToTime(unix_timestamp){
     var localTime = moment.unix(unix_timestamp);
-    localTime = localTime.format("HH:mm:ss");
+    localTime = localTime.format("hh:mm:ss A");
     return localTime;
 }
 
@@ -20,8 +20,17 @@ function averaging(arr) {
     var averagedArr = Math.round(sum / arr.length);
     return averagedArr;
 }
-function weatherUnit_desc(weather_unit){
-
+function weatherUnit_desc(weather_unit, period){
+    
+    let weather_widget_div
+    let weather_desc_div
+    if(period == true){
+        weather_desc_div = $("#weather-desc");
+        weather_widget_div = $("#img-weather-widget");
+    }else{
+        weather_desc_div = $("#weather-desc-hiddenDiv");
+        weather_widget_div = $("#img-weather-widget-hiddenDiv");
+    }
     // describe the weather condition like clear sky
     var weather_desc = [
         'Clear sky', 'Mainly clear, partly cloudy, and overcast',
@@ -49,48 +58,59 @@ function weatherUnit_desc(weather_unit){
         7: "/resources/thunderstome.svg"
     };
     if(weather_unit == 0){
-        $("#weather-desc").html(weather_desc[0]);
-        $("#img-weather-widget").attr("src", weather_widget[0]);
+        if( period == true){
+            $("#weather-desc").html(weather_desc[0]);
+            $("#img-weather-widget").attr("src", weather_widget[0]);
+        }else{
+            $("#weather-desc-hiddenDiv").html(weather_desc[0]);
+            $("#img-weather-widget-hiddenDiv").attr("src", weather_widget[0]);
+        }
+        
     }else if(weather_unit > 0 && weather_unit <= 3){
-        $("#weather-desc").html(weather_desc[1]);
-        $("#img-weather-widget").attr("src", weather_widget[4]);
+        weather_desc_div.html(weather_desc[1]);
+        weather_widget_div.attr("src", weather_widget[4]);
     }else if(weather_unit <= 48 && weather_unit > 3){
-        $("#weather-desc").html(weather_desc[2]);
-        $("#img-weather-widget").attr("src", weather_widget[3]);
-                
+        weather_desc_div.html(weather_desc[2]);
+        weather_widget_div.attr("src", weather_widget[3]);
                 
     }else if(weather_unit<= 55 && weather_unit > 50){
-        $("#weather-desc").html(weather_desc[3]); 
-        $("#img-weather-widget").attr("src", weather_widget[3]);                               
+        weather_desc_div.html(weather_desc[3]); 
+        weather_widget_div.attr("src", weather_widget[3]);                               
     }else if(weather_unit <= 57 && weather_unit > 55){
-        $("#weather-desc").html(weather_desc[4]); 
-        $("#img-weather-widget").attr("src", weather_widget[3]);               
+        weather_desc_div.html(weather_desc[4]); 
+        weather_widget_div.attr("src", weather_widget[3]);               
     }else if(weather_unit <= 65 && weather_unit > 60){
-        $("#weather-desc").html(weather_desc[5]);    
-        $("#img-weather-widget").attr("src", weather_widget[5]);            
+        weather_desc_div.html(weather_desc[5]);    
+        weather_widget_div.attr("src", weather_widget[5]);            
     }else if(weather_unit <= 67 && weather_unit >65){
-        $("#weather-desc").html(weather_desc[6]);    
-        $("#img-weather-widget").attr("src", weather_widget[5]);            
+        weather_desc_div.html(weather_desc[6]);    
+        weather_widget_div.attr("src", weather_widget[5]);            
     }else if(weather_unit <= 75 && weather_unit > 70){
-        $("#weather-desc").html(weather_desc[7]);       
-        $("#img-weather-widget").attr("src", weather_widget[2]);         
+        weather_desc_div.html(weather_desc[7]);       
+        weather_widget_div.attr("src", weather_widget[2]);         
     }else if(weather_unit == 77 && weather_unit > 75){
-        $("#weather-desc").html(weather_desc[8]);            
-        $("#img-weather-widget").attr("src", weather_widget[6]);    
+        weather_desc_div.html(weather_desc[8]);            
+        weather_widget_div.attr("src", weather_widget[6]);    
     }else if(weather_unit <= 82 && weather_unit > 79){
-        $("#weather-desc").html(weather_desc[9]);      
-        $("#img-weather-widget").attr("src", weather_widget[5]);          
+        weather_desc_div.html(weather_desc[9]);      
+        weather_widget_div.attr("src", weather_widget[5]);          
     }else if(weather_unit <= 86 && weather_unit > 84){
-        $("#weather-desc").html(weather_desc[10]);  
-        $("#img-weather-widget").attr("src", weather_widget[2]);                      
+        weather_desc_div.html(weather_desc[10]);  
+        weather_widget_div.attr("src", weather_widget[2]);                      
     }else if(weather_unit == 95 && weather_unit > 86){
     
-        $("#weather-desc").html(weather_desc[11]);                
-        $("#img-weather-widget").attr("src", weather_widget[7]);
+        weather_desc_div.html(weather_desc[11]);                
+        weather_widget_div.attr("src", weather_widget[7]);
     }else if(weather_unit <= 95 && weather_unit > 95){
-        $("#weather-desc").html(weather_desc[12]);              
-        $("#img-weather-widget").attr("src", weather_widget[7]);  
+        weather_desc_div.html(weather_desc[12]);              
+        weather_widget_div.attr("src", weather_widget[7]);  
     };
+}
+
+// to convert wind direction  degree into text direction
+function getCardinalDirection(angle) {
+    const directions = ['↑ N', '↗ NE', '→ E', '↘ SE', '↓ S', '↙ SW', '← W', '↖ NW'];
+    return directions[Math.round(angle / 45) % 8];
 }
 
 function setApi(position){
@@ -102,16 +122,42 @@ function setApi(position){
         var data = await response.json();
         console.log(data);
         const weatherData = data;
-        var sunrise = weatherData.daily.sunrise[weatherData.daily.sunrise.length -1 ];
-        $("#sunriseTime").html(unixToTime(sunrise));
-        let sunset = weatherData.daily.sunset[weatherData.daily.sunset.length -1];
-        $("#sunsetTime").html(unixToTime(sunset));
-        let temp_2m_max = weatherData.daily.temperature_2m_max;
-        $("#max-temp").html(averaging(temp_2m_max) + " °C");
-        let temp_2m_min = weatherData.daily.temperature_2m_min;
-        $("#min-temp").html(averaging(temp_2m_min) + " °C");
-        let weather_code = weatherData.current_weather.weathercode;
-        weatherUnit_desc(weather_code);
+        let elementsOfWeatherDats = [];
+        for(let i = 0; i<= Object.keys(weatherData).length; i++){
+            let keysValue = Object.keys(weatherData)[i]
+            elementsOfWeatherDats.push(keysValue);
+        }
+        if(elementsOfWeatherDats.includes("daily")){
+            $(".hidden-div").hide();
+            $(".div-wrapper").show();
+            var sunrise = weatherData.daily.sunrise[weatherData.daily.sunrise.length -1 ];
+            $("#sunriseTime").html(unixToTime(sunrise));
+            let sunset = weatherData.daily.sunset[weatherData.daily.sunset.length -1];
+            $("#sunsetTime").html(unixToTime(sunset));
+            let temp_2m_max = weatherData.daily.temperature_2m_max;
+            $("#max-temp").html(averaging(temp_2m_max) + " °C");
+            let temp_2m_min = weatherData.daily.temperature_2m_min;
+            $("#min-temp").html(averaging(temp_2m_min) + " °C");
+            let weather_code = weatherData.current_weather.weathercode;
+            let isDaily = true;
+            weatherUnit_desc(weather_code, isDaily);
+        }else{
+            $(".hidden-div").show();
+            $(".div-wrapper").hide()
+            isDaily = false;
+            let weather_code = weatherData.current_weather.weathercode;
+            weatherUnit_desc(weather_code, isDaily);
+            let currentTime = weatherData.current_weather.time;
+            $("#current-time").html(unixToTime(currentTime));
+            let currentTemp = weatherData.current_weather.temperature;
+            $("#current-temp").html(currentTemp);
+            let windDirection = weatherData.current_weather.winddirection;
+            $("#wind-direction").html(getCardinalDirection(windDirection));
+            let windSpeed = weatherData.current_weather.windspeed;
+            $("#wind-speed").html(windSpeed);;
+
+        }
+        
     }
     getweatherData(weatherApi_url);
     $(".searchSide-btn").click(() => {
@@ -122,13 +168,22 @@ function setApi(position){
             let searched_latitude = loc_data.data[0].latitude;
             let searched_longitude = loc_data.data[0].longitude;
             const searched_url = `https://api.open-meteo.com/v1/forecast?latitude=${searched_latitude}&longitude=${searched_longitude}&hourly=temperature_2m,relativehumidity_2m,weathercode,cloudcover_low,cloudcover_high&current_weather=true&timeformat=unixtime&timezone=Asia%2FBangkok`;
-            getweatherData(searched_url);
+            let searched_weatherData =    getweatherData(searched_url);
+            // async function searchDisappear(searchedData){
+            //     await searchedData;
+            //     if(searchedDivData == true){
+            //         console.log("searchDivDisappear");
+            //         $(".hidden-div").show();
+            //     }
+            // }
+            searchDisappear(searched_weatherData);
         };
         const input_city = $("#input-search").val();
-        console.log(typeof(input_city));
         const location_api = `http://api.positionstack.com/v1/forward?access_key=3e2cfd5a7e75d33753c3f9423e1cecc8&query=${input_city}`;
         getLocationData(location_api);
         
     });
+    
 }
+
 
