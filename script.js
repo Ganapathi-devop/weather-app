@@ -181,7 +181,7 @@ function setApi(position){
             searchDisappear(searched_weatherData);
         };
         const input_city = $("#input-search").val();
-        const location_api = `http://api.positionstack.com/v1/forward?access_key=3e2cfd5a7e75d33753c3f9423e1cecc8&query=${input_city}`;
+        const location_api = `https://api.positionstack.com/v1/forward?access_key=3e2cfd5a7e75d33753c3f9423e1cecc8&query=${input_city}`;
         getLocationData(location_api);
         
     });
