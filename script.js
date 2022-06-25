@@ -50,14 +50,14 @@ function weatherUnit_desc(weather_unit, period){
     // img file that store corresponding weather widget for weather desce
     var weather_widget = {
 
-        0: "/resources/clearday.svg",
-        1: "/resources/cloudy.svg",
-        2: "/resources/cloudysnowing.svg",
-        3: "/resources/foggy.svg",
-        4: "/resources/partlycloud.svg",
-        5: "/resources/raining.svg",
-        6: "/resources/severesnow.svg",
-        7: "/resources/thunderstome.svg"
+        0: "resources/clearday.svg",
+        1: "resources/cloudy.svg",
+        2: "resources/cloudysnowing.svg",
+        3: "resources/foggy.svg",
+        4: "resources/partlycloud.svg",
+        5: "resources/raining.svg",
+        6: "resources/severesnow.svg",
+        7: "resources/thunderstome.svg"
     };
     if(weather_unit == 0){
         if( period == true){
