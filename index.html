@@ -24,15 +24,19 @@
     <link rel="icon" type="image/png" href="/resources/img/cloudy.png" sizes="196x196" />
     <!-- styling file  -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
     <title>Weather-app</title>
 </head>
 <body>
     <div id="body">
         <div class="container">
             <div class="row">
+                
                 <header class="d-flex header-section">
                     <i class="fa-solid fa-cloud" id="cloud-icon-header"></i>
                     <img id="weatherify-logo" src="/resources/weatherify!.svg" alt="weatherify! *logo*">
+                    <i class="fa fa-align-justify menu-icon-header" id="menu-lines-icon" aria-hidden="true" onclick="menuIcon(true)"></i>
+                    <i class="fa fa-solid fa-x menu-icon-header" id="menu-cross-icon" aria-hidden="true" onclick="menuIcon(false)"></i>
                     <div class="menu-bar-header">
                         <a href="#" id="home-menu">HOME</a>
                         <span class="material-symbols-outlined bolticon-menu" id="home-menu-bolt">bolt</span>
@@ -42,7 +46,12 @@
                         <span class="material-symbols-outlined bolticon-menu" id="about-menu-bolt">bolt</span>
                     </div>
                 </header>
-
+                <!-- menu div that pops up on mobile devise onClick menu-icon -->
+                <div class="menu-icon-list">
+                    <a href="#" id="home-menu">HOME</a>
+                    <a href="#" id="contact-menu">CONTACT</a>
+                    <a href="#" id="about-menu">ABOUT</a>
+                </div>
                 <!-- content-section starts -->
                 <div class="content-section d-flex">
                     <img id="snowman-content" src="https://www.transparentpng.com/thumb/snowman/auIVvP-snowman-clipart-cute-snowman-cute-transparent-free-for.png" alt="Smile, Snowman transparent picture with broom @transparentpng.com">

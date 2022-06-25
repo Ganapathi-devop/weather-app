@@ -1,4 +1,6 @@
 $(document).ready(function getLocation() {
+    $(".menu-icon-list").hide();
+    $("#menu-cross-icon").hide();
     if (navigator.geolocation) {
             
         navigator.geolocation.getCurrentPosition(setApi);
@@ -184,6 +186,20 @@ function setApi(position){
         
     });
     
+}
+function menuIcon(isMenuLines){
+    console.log(isMenuLines);
+    let menuIcon = $(".menu-icon-list");
+    if(isMenuLines){
+        menuIcon.show();
+        $("#menu-cross-icon").show();
+        $("#menu-lines-icon").hide();
+    }else{
+        menuIcon.hide();
+        $("#menu-cross-icon").hide();
+        $("#menu-lines-icon").show();
+    }
+
 }
 
 

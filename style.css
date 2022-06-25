@@ -19,6 +19,9 @@
     justify-content: space-between;
     align-items: center;
 }
+.menu-icon-header{
+    display: none;
+}
 #cloud-icon-header{
     font-size: 16rem;
     color: #fff;
@@ -28,6 +31,37 @@
     z-index: 0;
     top: -58px;
     left: 15px;
+}
+.menu-icon-list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 90px;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    max-width: 80%;
+    max-height: 600px;
+    border-radius: 10px;
+    margin: 2rem;
+    padding: 1rem;
+    z-index: 1;
+}
+.menu-icon-list a{
+    margin: .5rem;
+    text-decoration: none;
+    color: #FFFF47;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+}
+.menu-icon-list a:hover{
+    border-bottom: 1px solid #e81cff;
+    text-shadow: 1px 1px goldenrod;
 }
 #weatherify-logo{
     max-width: 160px;
@@ -144,6 +178,9 @@
     font-weight: 700;
     text-shadow: 1px 1px rgba(0, 0, 0, .5);
     font-family: 'Righteous', cursive;
+}
+.hidden-div{
+    display: none;
 }
 .hidden-div span{
     color: #1A1A00;
