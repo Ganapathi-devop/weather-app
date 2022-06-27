@@ -22,10 +22,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js" integrity="sha512-vFABRuf5oGUaztndx4KoAEUVQnOvAIFs59y4tO0DILGWhQiFnFHiR+ZJfxLDyJlXgeut9Z07Svuvm+1Jv89w5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/locale/es-us.min.js" integrity="sha512-g3W07rPDBdP61IAshGY/U9bY76bt+lVk3WHD7+grs8tE4vUk7rxW3oaGjtUo12EcwHsbTjsdl9X5/fzCRYKR4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- browser icon -->
-    <link rel="icon" type="image/png" href="/resources/img/cloudy.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="resources/img/cloudy.png" sizes="196x196" />
     <!-- styling file  -->
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/responsive.css">
+    <link rel="stylesheet" href="/weather-app/style.css">
+    <link rel="stylesheet" href="/weather-app/responsive.css">
     <title>Weather-app</title>
 </head>
 <body>
@@ -35,7 +35,7 @@
                 
                 <header class="d-flex header-section">
                     <i class="fa-solid fa-cloud" id="cloud-icon-header"></i>
-                    <img id="weatherify-logo" src="/resources/weatherify!.svg" alt="weatherify! *logo*">
+                    <img id="weatherify-logo" src="resources/weatherify!.svg" alt="weatherify! *logo*">
                     <i class="fa fa-align-justify menu-icon-header" id="menu-lines-icon" aria-hidden="true" onclick="menuIcon(true)"></i>
                     <i class="fa fa-solid fa-x menu-icon-header" id="menu-cross-icon" aria-hidden="true" onclick="menuIcon(false)"></i>
                     <div class="menu-bar-header">
@@ -62,7 +62,7 @@
                             <h4 class="d-inline text-center">Last 24 hr Forecast</h4>
 
                             <div class="d-flex weather-widget p-2">
-                                <img id="img-weather-widget" src="/resources/img/cloudy.png" alt="cloudy img">
+                                <img id="img-weather-widget" src="resources/img/cloudy.png" alt="cloudy img">
                                 <table class="weather-widget-table">
                                     <thead><h4 id="weather-desc">CLOUDY</h4></thead>
                                     <tr>
@@ -108,7 +108,7 @@
                             <h4 class="heading-searchSide">Search your preferred Country</h4>
                             <div class="searchSide-div">
                                 <input type="text" class=" searchSide-btn" id="input-search" placeholder="Enter the capital city name:"></input>
-                                
+
                                 <button class="btn btn-primary searchSide-btn"><i class="fas fa-search-location "></i></button>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                         <!-- hidden div which will appear when search triggers  -->
                     <div class="hidden-div">
                         <div class="d-flex weather-widget p-2">
-                            <img id="img-weather-widget-hiddenDiv" src="/resources/img/cloudy.png" alt="cloudy img">
+                            <img id="img-weather-widget-hiddenDiv" src="resources/img/cloudy.png" alt="cloudy img">
                             <table class="weather-widget-table">
                                 <thead><h4 id="weather-desc-hiddenDiv">CLOUDY</h4></thead>
                                 <tr>
