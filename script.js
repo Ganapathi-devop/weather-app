@@ -181,8 +181,7 @@ function setApi(position){
             searchDisappear(searched_weatherData);
         };
         const input_city = $("#input-search").val();
-        const location_api = `https://geocode.xyz/?locate=${input_city}&eoit=json&auth=131386031867239e15815796x47222`;
-        console.log(location_api);
+        const location_api = `http://api.positionstack.com/v1/forward?access_key=3e2cfd5a7e75d33753c3f9423e1cecc8&query=${input_city}`;
         getLocationData(location_api);
         
     });
