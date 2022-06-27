@@ -165,10 +165,14 @@ function setApi(position){
     $(".searchSide-btn").click(() => {
         async function getLocationData(url){
             const response = await fetch(url);
+            console.log(response)
             var loc_data = await response.json();
             console.log(loc_data);
-            let searched_latitude = loc_data.data[0].latitude;
-            let searched_longitude = loc_data.data[0].longitude;
+            // let searched_latitude = loc_data.data[0].latitude;
+            // let searched_longitude = loc_data.data[0].longitude;
+            let searched_latitude = loc_data.latt;
+            let searched_longitude = loc_data.longt;
+            console.log(searched_latitude + searched_longitude)
             const searched_url = `https://api.open-meteo.com/v1/forecast?latitude=${searched_latitude}&longitude=${searched_longitude}&hourly=temperature_2m,relativehumidity_2m,weathercode,cloudcover_low,cloudcover_high&current_weather=true&timeformat=unixtime&timezone=Asia%2FBangkok`;
             let searched_weatherData =    getweatherData(searched_url);
             // async function searchDisappear(searchedData){
@@ -181,7 +185,8 @@ function setApi(position){
             searchDisappear(searched_weatherData);
         };
         const input_city = $("#input-search").val();
-        const location_api = `http://api.positionstack.com/v1/forward?access_key=3e2cfd5a7e75d33753c3f9423e1cecc8&query=${input_city}`;
+        // const location_api = `http://api.positionstack.com/v1/forward?access_key=3e2cfd5a7e75d33753c3f9423e1cecc8&query=${input_city}`;
+        const location_api = `https://geocode-maps.yandex.ru/1.x/?apikey=dd896e0e-8618-423f-b4bd-5272499bac0a&format=json&geocode=${input_city}`
         getLocationData(location_api);
         
     });
