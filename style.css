@@ -169,7 +169,7 @@
 .weather-widget-table td{
     margin: 5px;
 }
-#img-weather-widget{
+#img-weather-widget + #img-weather-widget-hiddenDiv{
     max-width: 100px;
     font-size: 2rem;
 }
