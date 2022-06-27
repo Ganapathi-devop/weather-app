@@ -170,7 +170,7 @@ function setApi(position){
         return geoArr;
     };
     getweatherData(weatherApi_url);
-    $(".searchSide-btn").click(() => {
+    $(".searchSide-btn").on("click", () => {
         const input_city = $("#input-search").val();
         const location_api = `https://geocode-maps.yandex.ru/1.x/?apikey=dd896e0e-8618-423f-b4bd-5272499bac0a&format=json&geocode=${input_city}`
         async function getLocationData(url){
