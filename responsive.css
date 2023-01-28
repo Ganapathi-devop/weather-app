@@ -7,7 +7,7 @@
     #cloud-icon-header{ font-size: 10rem; top: -30px; left: -.1rem; }
     .content-section{ flex-direction: column-reverse;}
     .report-side{ margin-top: 2rem;}
-    .search-side{ margin-bottom: 2rem; padding: 1rem;}
+    .search-side{ margin-bottom: 2rem; padding: 1rem;} 
     .searchSide-btn{ padding: .5rem;}
 }
 
