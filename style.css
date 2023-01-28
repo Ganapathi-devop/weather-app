@@ -7,7 +7,7 @@
 }
 #body{
     width: 100vw;
-    height: 100vh;
+    height: 100vh; 
     background: linear-gradient(to right, #40c9ff, #e81cff);
     overflow: hidden;
 }
